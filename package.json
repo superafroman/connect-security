@@ -1,0 +1,21 @@
+{
+    "name": "connect-security",
+    "description": "Authentication and authorisation for Connect.",
+    "version": "0.0.1",
+    "homepage" : "http://github.com/superafroman/connect-security",
+    "author": "Max Stewart <max.stewart@superafroman.com>",
+    "main": "lib/security.js",
+    "repository" : {
+        "type" : "git",
+         "url" : "http://github.com/superafroman/connect-security.git"
+    },
+    "licenses": [{
+        "type": "GPLv3",
+        "url": "http://www.gnu.org/licenses/gpl-3.0.txt"
+    }],
+    "dependencies": {
+        "connect": "0.2.5",
+        "vows": "0.5.1"
+    },
+    "engines": { "node": ">= 0.2.3" }
+}
