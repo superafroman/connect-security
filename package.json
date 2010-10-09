@@ -9,13 +9,9 @@
         "type" : "git",
          "url" : "http://github.com/superafroman/connect-security.git"
     },
-    "licenses": [{
-        "type": "GPLv3",
-        "url": "http://www.gnu.org/licenses/gpl-3.0.txt"
-    }],
     "dependencies": {
         "connect": "0.2.5",
         "vows": "0.5.1"
     },
-    "engines": { "node": ">= 0.2.3" }
+    "engines": { "node": ">= 0.2.1" }
 }
