@@ -2,8 +2,7 @@
 # connect-security
       
   Authorisation and authentication middleware for [Connect](http://github.com/senchalabs/connect).
-  
-  For a simple form authentication example see the examples folder.
+
 
 ## Features
 
@@ -18,9 +17,7 @@
 
 ## Installation
 
-npm:
-
-    $ npm install connect-security
+Currently only available via git.  Once the base code and api are stable connect-security will be added to npm.
 
 ## Node Compatibility
     
