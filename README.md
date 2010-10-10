@@ -7,13 +7,17 @@
 ## Features
 
   * Form authentication
-  * Basic authentication [TODO]
   * Remember me authentication
   * Role based authorisation
   * Secure functions
-  * Secure URLs [TODO]
   * Custom authentication filters
   * Chain-able authentication filters
+
+## Coming Soon
+
+  * Basic authentication
+  * Secure URLs
+  * Password hashing
 
 ## Installation
 
