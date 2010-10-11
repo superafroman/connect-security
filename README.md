@@ -21,7 +21,9 @@
 
 ## Installation
 
-Currently only available via git.  Once the base code and api are stable connect-security will be added to npm.
+npm:
+
+    $ npm install connect-security
 
 ## Node Compatibility
     
