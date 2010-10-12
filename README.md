@@ -1,14 +1,15 @@
 
 # connect-security
       
-  Authorisation and authentication middleware for [Connect](http://github.com/senchalabs/connect).
+  Authentication and authorisation middleware for [Connect](http://github.com/senchalabs/connect).
 
+  connect-security is loosely based on [Spring Security](http://static.springsource.org/spring-security/site/) for Java.  Authentication is handled through the use of authentication filters which you can chain, allowing you to incorporate multiple different means of authentication into your application.  Authorisation, or access control, is handled through the use or user roles so you can lock down functions or URLs to be accessible only to users with certain roles.
 
 ## Features
 
   * Form authentication
   * Remember me authentication
-  * Role based authorisation
+  * Role based authorisation (access control)
   * Secure functions
   * Custom authentication filters
   * Chain-able authentication filters
@@ -18,6 +19,7 @@
   * Basic authentication
   * Secure URLs
   * Password hashing
+  * API documentation
 
 ## Installation
 
