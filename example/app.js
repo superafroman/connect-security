@@ -84,7 +84,6 @@ var server = connect.createServer(
 			{'test': {username:'test', password: '12345', roles: ['user']}}
 		})
 	}),
-    connect.staticProvider(__dirname + '/public'),
 	connect.router(urls),
 	security.errorHandler()
 );
