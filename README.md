@@ -8,17 +8,17 @@
 ## Features
 
   * Form authentication
+  * Basic authentication
   * Remember me authentication
   * Role based authorisation (access control)
   * Secure functions
   * Custom authentication filters
   * Chain-able authentication filters
+  * Password hashing
 
 ## Coming Soon
 
-  * Basic authentication
   * Secure URLs
-  * Password hashing
   * API documentation
 
 ## Installation
