@@ -43,27 +43,27 @@ function urls(app) {
 	});
 }
 
-var BasicAuthenticationFilter = require('./filter/basicauthenticationfilter');
-var BasicAuthenticationEntryPoint = require('./entrypoint/basicauthenticationentrypoint');
-var LogoutFilter = require('./filter/logoutfilter');
+var BasicAuthenticationFilter = require('connect-security/filter/basicauthenticationfilter');
+var BasicAuthenticationEntryPoint = require('connect-security/entrypoint/basicauthenticationentrypoint');
+var LogoutFilter = require('connect-security/filter/logoutfilter');
 
 var server = connect.createServer(
-
-	connect.cookieDecoder(),
-	connect.bodyDecoder(),
-	connect.session(),
-	security({
-		userProvider: new InMemoryUserProvider({users:
-			{'test': {username:'test', password: '12345', roles: ['user']}}
-		}),
-		filters: [
-			new BasicAuthenticationFilter(),
-			new LogoutFilter()
-		],
-		entryPoint: new BasicAuthenticationEntryPoint()
-	}),
-	connect.router(urls),
-	security.errorHandler()
+    connect.cookieDecoder(),
+    connect.bodyDecoder(),
+    connect.session(),
+    security({
+        filters: [
+            new BasicAuthenticationFilter({
+                userProvider: new InMemoryUserProvider({users:
+                    {'test': {username:'test', password: '12345', roles: ['user']}}
+                })
+            }),
+            new LogoutFilter()
+        ],
+        entryPoint: new BasicAuthenticationEntryPoint({realmName: 'connect-security'})
+    }),
+    connect.router(urls),
+    security.errorHandler()
 );
 
 server.listen(3000);

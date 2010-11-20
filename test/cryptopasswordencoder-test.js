@@ -14,8 +14,7 @@ vows.describe('CryptoPasswordEncoder').addBatch({
 				return passwordEncoder.encode('passwd');
 			},
 			"should return 'passwd'": function(result) {
-				console.log(result);
-				assert.equal(result, 'passwd');
+				assert.equal(result, '76a2173be6393254e72ffa4d6df1030a');
 			}
 		}
 	}
