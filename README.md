@@ -31,11 +31,11 @@ npm:
     
 The latest release of connect-security is compatible with node --version:
 
-    v0.2.1
+    >= 0.2.1
 
 and connect --version:
 
-    0.2.5
+    >= 0.2.5
 
 ## License 
 
