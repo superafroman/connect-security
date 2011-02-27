@@ -12,7 +12,7 @@
     "dependencies": {
         "connect": "0.2.5",
         "cookie": "0.1.2",
-        "vows": "0.5.1"
+        "vows": "0.5.6"
     },
 	"directories": {
 		"lib": "./lib"
