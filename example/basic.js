@@ -42,23 +42,32 @@ var BasicAuthenticationFilter = require('connect-security/filter/basicauthentica
 var BasicAuthenticationEntryPoint = require('connect-security/entrypoint/basicauthenticationentrypoint');
 var LogoutFilter = require('connect-security/filter/logoutfilter');
 
-var server = connect.createServer(connect.cookieDecoder(), connect
-    .bodyDecoder(), connect.session(), security({
-  filters : [ new BasicAuthenticationFilter({
-    userProvider : new InMemoryUserProvider({
-      users : {
-        'test' : {
-          username : 'test',
-          password : '12345',
-          roles : [ 'user' ]
-        }
-      }
+var server = connect.createServer(
+  connect.cookieDecoder(), 
+  connect.bodyDecoder(), 
+  connect.session(), 
+  security({
+    filters: [ 
+      new BasicAuthenticationFilter({
+        userProvider : new InMemoryUserProvider({
+          users: {
+            'test': {
+              username : 'test',
+              password : '12345',
+              roles : [ 'user' ]
+            }
+          }
+        })
+      }), 
+      new LogoutFilter() 
+    ],
+    entryPoint: new BasicAuthenticationEntryPoint({
+      realmName: 'connect-security'
     })
-  }), new LogoutFilter() ],
-  entryPoint : new BasicAuthenticationEntryPoint({
-    realmName : 'connect-security'
-  })
-}), connect.router(urls), security.errorHandler());
+  }), 
+  connect.router(urls), 
+  security.errorHandler()
+);
 
 server.listen(3000);
 console.log('Server started at http://127.0.0.1:3000/');

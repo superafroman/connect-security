@@ -56,19 +56,25 @@ function urls(app) {
   });
 }
 
-var server = connect.createServer(connect.cookieDecoder(), connect
-    .bodyDecoder(), connect.session(), security.formAuthenticationChain({
-  rememberMe : {},
-  userProvider : new InMemoryUserProvider({
-    users : {
-      'test' : {
-        username : 'test',
-        password : '12345',
-        roles : [ 'user' ]
+var server = connect.createServer(
+  connect.cookieDecoder(), 
+  connect.bodyDecoder(), 
+  connect.session(), 
+  security.formAuthenticationChain({
+    rememberMe : {},
+    userProvider : new InMemoryUserProvider({
+      users : {
+        'test' : {
+          username : 'test',
+          password : '12345',
+          roles : [ 'user' ]
+        }
       }
-    }
-  })
-}), connect.router(urls), security.errorHandler());
+    })
+  }), 
+  connect.router(urls), 
+  security.errorHandler()
+);
 
 server.listen(3000);
 console.log('Server started at http://127.0.0.1:3000/');
