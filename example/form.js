@@ -16,7 +16,6 @@ function urls(app) {
       res.end('<html>' + '<head>' + '<title>Hello Secure World!</title>'
           + '</head>' + '<body>' + '<h2>Hello Secure World!</h2>' + '</body>'
           + '</html>');
-      next();
     });
   });
 
@@ -26,15 +25,13 @@ function urls(app) {
     });
     res.end('<html>' + '<head>' + '<title>Hello World!</title>' + '</head>'
         + '<body>' + '<h2>Hello World!</h2>' + '</body>' + '</html>');
-    next();
   });
 
   app.get('/logout', function(req, res, next) {
     res.writeHead(303, {
-      "Location" : "/"
+      'Location': '/'
     });
     res.end('');
-    next();
   });
 
   app.get('/login', function(req, res, next) {
@@ -52,7 +49,6 @@ function urls(app) {
         + '<input id="rememberMe" name="rememberMe" type="checkbox" />'
         + '</div>' + '<div>' + '<input name="login" type="submit" />'
         + '</div>' + '</form>' + '</body>' + '</html>');
-    next();
   });
 }
 
