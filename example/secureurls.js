@@ -82,7 +82,7 @@ var server = connect.createServer(
   connect.session(), 
   security.formAuthenticationChain({
     interceptUrls: [
-      { url: /^secure.*/, access: 'hasRole("user")' }
+      { url: /^\/secure.*/, access: 'hasRole("user")' }
     ],
     rememberMe : {},
     userProvider : new InMemoryUserProvider({
