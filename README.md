@@ -12,13 +12,15 @@
   * Remember me authentication
   * Role based authorisation (access control)
   * Secure functions
+  * Secure URLs
   * Custom authentication filters
   * Chain-able authentication filters
   * Password hashing
-
+  
 ## Coming Soon
 
-  * Secure URLs
+  * Channel switching - http/https
+  * EL support in secure functions
   * API documentation
 
 ## Installation
