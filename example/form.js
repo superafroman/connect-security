@@ -9,13 +9,18 @@ var InMemoryUserProvider = require('connect-security/service/inmemoryuserprovide
 
 function urls(app) {
   app.get('/secure', function(req, res, next) {
-    security.secure('user', req, function() {
+    security.preAuthorize('isAuthenticated()', req, function() {
       res.writeHead(200, {
-        "Content-Type" : "text/html"
+        'Content-Type' : 'text/html'
       });
-      res.end('<html>' + '<head>' + '<title>Hello Secure World!</title>'
-          + '</head>' + '<body>' + '<h2>Hello Secure World!</h2>' + '</body>'
-          + '</html>');
+      res.end('<html>' + 
+                '<head>' + 
+                  '<title>Hello Secure World!</title>' + 
+                '</head>' + 
+                '<body>' + 
+                  '<h2>Hello Secure World!</h2>' + 
+                '</body>' + 
+              '</html>');
     });
   });
 
@@ -23,8 +28,14 @@ function urls(app) {
     res.writeHead(200, {
       "Content-Type" : "text/html"
     });
-    res.end('<html>' + '<head>' + '<title>Hello World!</title>' + '</head>'
-        + '<body>' + '<h2>Hello World!</h2>' + '</body>' + '</html>');
+    res.end('<html>' + 
+              '<head>' + 
+                '<title>Hello World!</title>' + 
+              '</head>' + 
+              '<body>' + 
+                '<h2>Hello World!</h2>' + 
+              '</body>' + 
+            '</html>');
   });
 
   app.get('/logout', function(req, res, next) {
@@ -38,17 +49,32 @@ function urls(app) {
     res.writeHead(200, {
       'Content-Type' : 'text/html'
     });
-    res.end('<html>' + '<head>' + '<title>Login</title>' + '</head>' + '<body>'
-        + '<h2>Login</h2>' + '<p>Username/password: test/12345</p>'
-        + '<form method="post">' + '<div>'
-        + '<label for="username">Username:</label>'
-        + '<input id="username" name="username" type="text" />' + '</div>'
-        + '<div>' + '<label for="password">Password:</label>'
-        + '<input id="password" name="password" type="password" />' + '</div>'
-        + '<div>' + '<label for="rememberMe">Remember Me:</label>'
-        + '<input id="rememberMe" name="rememberMe" type="checkbox" />'
-        + '</div>' + '<div>' + '<input name="login" type="submit" />'
-        + '</div>' + '</form>' + '</body>' + '</html>');
+    res.end('<html>' + 
+              '<head>' + 
+                '<title>Login</title>' + 
+              '</head>' + 
+              '<body>' + 
+                '<h2>Login</h2>' + 
+                '<p>Username/password: test/12345</p>' + 
+                '<form method="post">' + 
+                  '<div>' + 
+                    '<label for="username">Username:</label>' + 
+                    '<input id="username" name="username" type="text" />' + 
+                  '</div>' + 
+                  '<div>' + 
+                    '<label for="password">Password:</label>' + 
+                    '<input id="password" name="password" type="password" />' + 
+                  '</div>' + 
+                  '<div>' + 
+                    '<label for="rememberMe">Remember Me:</label>' + 
+                    '<input id="rememberMe" name="rememberMe" type="checkbox" />' + 
+                  '</div>' + 
+                  '<div>' + 
+                    '<input name="login" type="submit" />' + 
+                  '</div>' + 
+                '</form>' + 
+              '</body>' + 
+            '</html>');
   });
 }
 
@@ -62,8 +88,7 @@ var server = connect.createServer(
       users : {
         'test' : {
           username : 'test',
-          password : '12345',
-          roles : [ 'user' ]
+          password : '12345'
         }
       }
     })
