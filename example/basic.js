@@ -5,7 +5,7 @@
 var connect = require('connect');
 var security = require('connect-security');
 
-var InMemoryUserProvider = require('connect-security/service/inmemoryuserprovider');
+var InMemoryUserProvider = require('connect-security/lib/service/inmemoryuserprovider');
 
 function urls(app) {
   app.get('/secure', function(req, res, next) {
@@ -38,14 +38,14 @@ function urls(app) {
   });
 }
 
-var BasicAuthenticationFilter = require('connect-security/filter/basicauthenticationfilter');
-var BasicAuthenticationEntryPoint = require('connect-security/entrypoint/basicauthenticationentrypoint');
-var LogoutFilter = require('connect-security/filter/logoutfilter');
+var BasicAuthenticationFilter = require('connect-security/lib/filter/basicauthenticationfilter');
+var BasicAuthenticationEntryPoint = require('connect-security/lib/entrypoint/basicauthenticationentrypoint');
+var LogoutFilter = require('connect-security/lib/filter/logoutfilter');
 
 var server = connect.createServer(
-  connect.cookieDecoder(), 
-  connect.bodyDecoder(), 
-  connect.session(), 
+  connect.cookieParser(), 
+  connect.bodyParser(), 
+  connect.session({secret: 'secret'}), 
   security({
     filters: [ 
       new BasicAuthenticationFilter({

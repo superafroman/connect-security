@@ -5,7 +5,7 @@
 var connect = require('connect');
 var security = require('connect-security');
 
-var InMemoryUserProvider = require('connect-security/service/inmemoryuserprovider');
+var InMemoryUserProvider = require('connect-security/lib/service/inmemoryuserprovider');
 
 function urls(app) {
   app.get('/secure', function(req, res, next) {
@@ -77,9 +77,9 @@ function urls(app) {
 }
 
 var server = connect.createServer(
-  connect.cookieDecoder(), 
-  connect.bodyDecoder(), 
-  connect.session(), 
+  connect.cookieParser(), 
+  connect.bodyParser(), 
+  connect.session({secret: 'secret'}), 
   security.formAuthenticationChain({
     interceptUrls: [
       { url: /^\/secure.*/, access: 'hasRole("user")' }
