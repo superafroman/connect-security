@@ -1,7 +1,7 @@
 {
     "name": "connect-security",
     "description": "Authentication and authorization middleware for Connect.",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "homepage" : "http://github.com/superafroman/connect-security",
     "author": "Max Stewart <max.stewart@superafroman.com>",
     "main": "lib/security.js",
